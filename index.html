@@ -3,146 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Yes or No</title>
     <style>
-        .main{
-          display:grid;
-          grid-template-columns: 4cm 5cm 5cm 5cm 5cm 5cm 5cm;
-          grid-template-rows: 1.5cm 1.5cm 1.5cm 5cm 1.5cm ;
-          gap:10px;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
         }
-
-        .d1{
-          background-color:green;
-          color:white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-row:1/4;
-          
-          
-
+        .content, .response {
+            display: none;
         }
-        .d2{
-          background-color: aqua;
-          color: blue;
-          align-content: center;
-          text-align: center;
-          grid-column: 2/6;
-          border:2px solid black ;
-
-
+        .active {
+            display: block;
         }
-
-        .d3{
-          background-color: wheat;
-          color: black;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 2/5;
-
-          
+        img {
+            max-width: 300px;
+            height: auto;
+            margin-top: 20px;
         }
-
-        .d4{
-          background-color:yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 2/3;
-
-
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
-
-        .d5{
-          background-color: yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 3/4;
-
-
-        }
-        .d6{
-          background-color: yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 4/5;
-
-
-        }
-        .d7{
-          background-color: yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 5/6;
-        }
-
-        .d8{
-          background-color: yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 6/7;
-        }
-        .d9{
-          background-color: yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 7/8;
-        }
-
-        .d10{
-          
-          color: black;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-row: 4;
-        }
-        .d11{
-          background-color: red;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 2/8;
-        }
-        .d12{
-          background-color: yellowgreen;
-          color: white;
-          align-content: center;
-          text-align: center;
-          border:2px solid black ;
-          grid-column: 2/8;
-        }
-
-      </style>
+    </style>
 </head>
 <body>
-    <div class="main">
-        <div class="d1">Logo</div>
-        <div class="d2">2</div>
-        <div class="d3">21</div>
-        <div class="d4">3</div>
-        <div class="d5">4</div>
-        <div class="d6">5</div>
-        <div class="d7">6</div>
-        <div class="d8">7</div>
-        <div class="d9">8</div>
-        <div class="d10">Navigation</div>
-        <div class="d11">Content</div>
-        <div class="d12">Footer</div>
-      </div> 
+    <!-- Main Content -->
+    <div class="content active" id="mainContent">
+        <h1>Hello!</h1>
+        <img src="https://e1.pxfuel.com/desktop-wallpaper/151/458/desktop-wallpaper-bubu-dudu-star-bubu-dudu.jpg" alt="Cute Image">
+        <p>Do you love me?</p>
+        <button onclick="showResponse('yes')">Yes</button>
+        <button onclick="showResponse('no')">No</button>
+    </div>
+
+    <!-- Response Content -->
+    <div class="response" id="responseContent">
+        <h2 id="responseMessage"></h2>
+        <img id="responseImage" src="" alt="Response Image">
+    </div>
+
+    <script>
+        function showResponse(answer) {
+            // Hide the main content
+            document.getElementById('mainContent').classList.remove('active');
+
+            // Show the response content
+            document.getElementById('responseContent').classList.add('active');
+
+            // Customize the response based on the answer
+            if (answer === 'yes') {
+                document.getElementById('responseMessage').textContent = 'Thank you!';
+                document.getElementById('responseImage').src = 'https://tse1.mm.bing.net/th?id=OIP.b44PdLqswEaQAtgv5MJDQwHaHa&pid=Api&P=0&h=180';
+            } else {
+                document.getElementById('responseMessage').textContent = 'Ja mg dusri bagha!';
+                document.getElementById('responseImage').src = 'https://ih1.redbubble.net/image.3817068377.2804/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg';
+            }
+        }
+    </script>
 </body>
 </html>
